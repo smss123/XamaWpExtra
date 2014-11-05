@@ -1,7 +1,5 @@
-using System.Xml.Serialization;
-namespace DataLayer
+﻿namespace DataLayer
 {
-    
     partial class Person
     {
     }

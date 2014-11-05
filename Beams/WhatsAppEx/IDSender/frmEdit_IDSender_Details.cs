@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
 
 namespace Beams.WhatsAppEx.IDSender
 {
@@ -18,7 +12,6 @@ namespace Beams.WhatsAppEx.IDSender
 
         private void frmEdit_IDSender_Details_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

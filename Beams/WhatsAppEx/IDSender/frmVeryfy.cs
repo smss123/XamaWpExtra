@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 
@@ -21,19 +17,18 @@ namespace Beams.WhatsAppEx.IDSender
 
         private void frmVeryfy_Load(object sender, EventArgs e)
         {
-
         }
 
         private void radButton1_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(this.txtAcitvationCode.Text) && this.txtAcitvationCode.Text.Length == 6)
+            if (!String.IsNullOrEmpty(txtAcitvationCode.Text) && txtAcitvationCode.Text.Length == 6)
             {
                 try
                 {
-                    this.password = WhatsAppApi.Register.WhatsRegisterV2.RegisterCode(this.phonenumber, this.txtAcitvationCode.Text, this.identity);
-                    if (!string.IsNullOrEmpty(this.password))
+                    password = WhatsAppApi.Register.WhatsRegisterV2.RegisterCode(phonenumber, txtAcitvationCode.Text, identity);
+                    if (!string.IsNullOrEmpty(password))
                     {
-                        this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                        DialogResult = System.Windows.Forms.DialogResult.OK;
                     }
                     else
                     {
@@ -42,8 +37,7 @@ namespace Beams.WhatsAppEx.IDSender
                 }
                 catch (Exception ex)
                 {
-
-                    RadMessageBox.ThemeName = this.ThemeName;
+                    RadMessageBox.ThemeName = ThemeName;
                     RadMessageBox.Show(ex.Message, "Error");
                 }
             }

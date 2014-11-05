@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using Beams.XamaService;
 using System.IO;
 using System.Drawing.Imaging;
-using Telerik.WinControls.UI;
+
 namespace Beams.WhatsAppEx.IDSender
 {
     public partial class frmRegisterIDSender : Telerik.WinControls.UI.RadForm
@@ -18,15 +15,12 @@ namespace Beams.WhatsAppEx.IDSender
         {
             InitializeComponent();
         }
-
-
-        private string[] methods = { "sms", "voice" };
         private string _phonenumber;
         public string phonenumber
         {
             get
             {
-                return this._phonenumber;
+                return _phonenumber;
             }
         }
         public string password = string.Empty;
@@ -34,74 +28,58 @@ namespace Beams.WhatsAppEx.IDSender
 
         public void SetNumber(string phonenumber)
         {
-            this._phonenumber = phonenumber;
-            this.whatsAppIDSenderRadTextBox.Text = phonenumber;
+            _phonenumber = phonenumber;
+            whatsAppIDSenderRadTextBox.Text = phonenumber;
         }
 
         private void btnOky_Click(object sender, EventArgs e)
         {
-
-
-            this._phonenumber = this.whatsAppIDSenderRadTextBox.Text;
-            if (!string.IsNullOrEmpty(this.phonenumber))
+            _phonenumber = whatsAppIDSenderRadTextBox.Text;
+            if (!string.IsNullOrEmpty(phonenumber))
             {
-
-                this.identity = WhatsAppApi.Register.WhatsRegisterV2.GenerateIdentity(this.phonenumber);
-                string method = "sms";
-                string response = string.Empty;
-                if (WhatsAppApi.Register.WhatsRegisterV2.RequestCode(this.phonenumber, out this.password, out response, method, this.identity))
+                identity = WhatsAppApi.Register.WhatsRegisterV2.GenerateIdentity(phonenumber);
+                var method = "sms";
+                var response = string.Empty;
+                if (WhatsAppApi.Register.WhatsRegisterV2.RequestCode(phonenumber, out password, out response, method, identity))
                 {
-                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                    paskeyRadTextBox.Text = this.password;
-                    if (paskeyRadTextBox.Text == "")
+                    DialogResult = System.Windows.Forms.DialogResult.OK;
+                    paskeyRadTextBox.Text = password;
+                    if (paskeyRadTextBox.Text == string.Empty)
                     {
-                        frmVeryfy reg2 = new frmVeryfy();
-                        reg2.identity = this.identity;
+                        var reg2 = new frmVeryfy();
+                        reg2.identity = identity;
                         reg2.phonenumber = whatsAppIDSenderRadTextBox.Text;
 
                         if (reg2.ShowDialog() == System.Windows.Forms.DialogResult.OK && !string.IsNullOrEmpty(reg2.password))
                         {
-
                             paskeyRadTextBox.Text = reg2.password;
 
                             Application.DoEvents();
-                            //success!
                             SaveIDSender();
-                        }//end if show veryfy form
-                    }//end if check if password not found
+                        }
+                    }
                     else
                     {
                         SaveIDSender();
                     }
-                }//end if request code
+                }
                 else
                 {
-                    RadMessageBox.ThemeName = this.ThemeName;
+                    RadMessageBox.ThemeName = ThemeName;
                     RadMessageBox.Show(String.Format("Could not request code:\r\n{0}", response));
                 }
-
-            }// if  phone number not found
-
-
-
-
-
-
-
-          
-          
+            }
         }
 
         private void SaveIDSender()
         {
-            
             txtMsg.Text = "Saveing Id Sender Now ..  ";
             Application.DoEvents();
             SaveIDSenderToDataBase();
-            txtMsg.Text = "";
+            txtMsg.Text = string.Empty;
             ClearTexBoxs();
             frmRegisterIDSender_Load(null, null);
-            int counter = (int.Parse(Beams.SysUsers.LoginInfo.IdSenderCounter) + 1);
+            var counter = (int.Parse(Beams.SysUsers.LoginInfo.IdSenderCounter) + 1);
             Beams.SysUsers.LoginInfo.IdSenderCounter = counter.ToString();
             RadCounter.Text = string.Format("Register To Now {0}", counter);
             whatsAppIDSenderRadTextBox.Focus();
@@ -109,23 +87,22 @@ namespace Beams.WhatsAppEx.IDSender
 
         private void ClearTexBoxs()
         {
-            foreach (Control item in this.radGroupBox1.Controls)
+            foreach (Control item in radGroupBox1.Controls)
             {
                 if (item is Telerik.WinControls.UI.RadTextBox)
                 {
-                    item.Text = "";
+                    item.Text = string.Empty;
                 }
             }
         }
 
         private void SaveIDSenderToDataBase()
         {
-            
-            this.Cursor = Cursors.WaitCursor;
+            Cursor = Cursors.WaitCursor;
 
-            XamaWhatsAppServiceSoapClient proxy = new XamaWhatsAppServiceSoapClient();
+            var proxy = new XamaWhatsAppServiceSoapClient();
             byte[] img;
-            MemoryStream mo = new MemoryStream();
+            var mo = new MemoryStream();
             try
             {
                 whatsAppImgPictureBox.Image.Save(mo, ImageFormat.Png);
@@ -133,19 +110,15 @@ namespace Beams.WhatsAppEx.IDSender
             }
             catch (System.NullReferenceException ex1)
             {
-
-                //RadMessageBox.ThemeName = this.ThemeName;
-                //RadMessageBox.Show(ex1.Message , "Error in Saved Picture",MessageBoxButtons.OK,null);
                 img = null;
             }
 
-            string AutoReply = autoReplayMsgRadTextBox.Text;
-            string whatsStatus = whatsAppStatusRadTextBox.Text;
-            string passkey = paskeyRadTextBox.Text;
+            var AutoReply = autoReplayMsgRadTextBox.Text;
+            var whatsStatus = whatsAppStatusRadTextBox.Text;
+            var passkey = paskeyRadTextBox.Text;
 
-            XamaService.IDSender id = new XamaService.IDSender()
-            {
-                AutoReplayMsg = AutoReply,
+            var id = new XamaService.IDSender()
+            { AutoReplayMsg = AutoReply,
                 IDSenderStatus = "Active",
                 WhatsAppStatus = whatsStatus,
                 WhatsAppIDSender = whatsAppIDSenderRadTextBox.Text,
@@ -158,19 +131,16 @@ namespace Beams.WhatsAppEx.IDSender
 
             if (proxy.IDSenderSave(id))
             {
-
                 DevComponents.DotNetBar.ToastNotification.Show(this, "Saved Successfully", DevComponents.DotNetBar.eToastPosition.MiddleCenter);
             }
-            this.Cursor = Cursors.Default;
-           
+            Cursor = Cursors.Default;
         }
 
         private void whatsAppImgPictureBox_Click(object sender, EventArgs e)
         {
-            OpenFileDialog op = new OpenFileDialog();
+            var op = new OpenFileDialog();
             op.ShowDialog();
             whatsAppImgPictureBox.Image = Image.FromFile(op.FileName);
-           
         }
 
         private void frmRegisterIDSender_Load(object sender, EventArgs e)
@@ -178,7 +148,6 @@ namespace Beams.WhatsAppEx.IDSender
             PermessionManager.ApplyPermession(this);
             RadCounter.Text = string.Format("Register To Now {0}", Beams.SysUsers.LoginInfo.IdSenderCounter);
 
-            ////WhatsAppStatusControl
             foreach (var item in Beams.SysUsers.LoginInfo.permession)
             {
                 if (item.SystemPermession.PermessionName == "AutoReplay")
@@ -202,7 +171,6 @@ namespace Beams.WhatsAppEx.IDSender
                     whatsAppStatusRadTextBox.Text  = (item.PermessionValue);
                     whatsAppStatusRadTextBox.Refresh();
                 }
-                //AutoReplayMessage
                 if (item.SystemPermession.PermessionName == "AutoReplayMessage")
                 {
                     autoReplayMsgRadTextBox.Text = (item.PermessionValue);
@@ -213,7 +181,7 @@ namespace Beams.WhatsAppEx.IDSender
                     if (item.PermessionValue == "False")
                     {
                         RadMessageBox.Show("You have't To Access This Form");
-                        this.Close();
+                        Close();
                     }
                 }
             }

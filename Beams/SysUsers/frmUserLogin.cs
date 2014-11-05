@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using Telerik.WinControls;
 
 namespace Beams.SysUsers
 {
@@ -18,7 +12,7 @@ namespace Beams.SysUsers
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if (txtUserName.Text=="")
+            if (txtUserName.Text == string.Empty)
             {
                 errorProvider1.SetError(txtUserName, "Please Enter User Name");
                 return;
@@ -28,7 +22,7 @@ namespace Beams.SysUsers
                 errorProvider1.Clear();
             }
 
-            if (txtPassword.Text == "")
+            if (txtPassword.Text == string.Empty)
             {
                 errorProvider1.SetError(txtPassword, "Please Enter Password");
                 return;
@@ -38,11 +32,11 @@ namespace Beams.SysUsers
                 errorProvider1.Clear();
             }
 
-            frmLoading frm = new frmLoading();
+            var frm = new frmLoading();
             frm.txtUserName = txtUserName.Text;
             frm.txtPassword = txtPassword.Text;
             frm.ShowDialog();
-            this.Hide();
+            Hide();
         }
     }
 }

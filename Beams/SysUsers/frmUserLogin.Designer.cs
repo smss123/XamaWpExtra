@@ -53,7 +53,7 @@
             // 
             this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserName.Location = new System.Drawing.Point(123, 43);
+            this.txtUserName.Location = new System.Drawing.Point(123, 42);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.NullText = "Please Enter User Name";
             this.txtUserName.PasswordChar = '1';
@@ -65,7 +65,7 @@
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(123, 81);
+            this.txtPassword.Location = new System.Drawing.Point(123, 80);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.NullText = "Please Enter Password";
             this.txtPassword.PasswordChar = '1';
@@ -78,7 +78,7 @@
             this.radLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel1.Location = new System.Drawing.Point(35, 49);
+            this.radLabel1.Location = new System.Drawing.Point(35, 48);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(82, 22);
             this.radLabel1.TabIndex = 2;
@@ -90,7 +90,7 @@
             this.radLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.radLabel2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(46, 85);
+            this.radLabel2.Location = new System.Drawing.Point(46, 84);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(71, 22);
             this.radLabel2.TabIndex = 2;
@@ -101,7 +101,7 @@
             // 
             this.BtnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnLogin.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogin.Location = new System.Drawing.Point(255, 111);
+            this.BtnLogin.Location = new System.Drawing.Point(255, 110);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(130, 37);
             this.BtnLogin.TabIndex = 3;
@@ -129,9 +129,9 @@
             this.radGroupBox1.HeaderImage = global::Beams.Properties.Resources.unlocked_01;
             this.radGroupBox1.HeaderText = "Please Login";
             this.radGroupBox1.HeaderTextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.radGroupBox1.Location = new System.Drawing.Point(351, 248);
+            this.radGroupBox1.Location = new System.Drawing.Point(351, 249);
             this.radGroupBox1.Name = "radGroupBox1";
-            this.radGroupBox1.Size = new System.Drawing.Size(414, 171);
+            this.radGroupBox1.Size = new System.Drawing.Size(414, 170);
             this.radGroupBox1.TabIndex = 4;
             this.radGroupBox1.Text = "Please Login";
             this.radGroupBox1.ThemeName = "Office2010Black";
