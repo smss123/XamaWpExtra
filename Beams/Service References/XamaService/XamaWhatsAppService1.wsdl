@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://xprema.net" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://xprema.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://xprema.net">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServiceStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServiceStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServiceStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartService">
+        <s:complexType />
+      </s:element>
+      <s:element name="StartServiceResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StopService">
+        <s:complexType />
+      </s:element>
+      <s:element name="StopServiceResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:SystemUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SystemUser">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Person_ID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserToken" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserPermession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserPermessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserPermessionResult" type="tns:ArrayOfUserPermession" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUserPermession">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserPermession" nillable="true" type="tns:UserPermession" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserPermession">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermessionID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PermessionValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemPermession" type="tns:SystemPermession" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemUser" type="tns:SystemUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SystemPermession">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PermessionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PermessionDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IDSenderSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="snd" type="tns:IDSender" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IDSender">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhatsAppIDSender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Paskey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="User_ID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Company_ID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="whatsAppImg" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhatsAppStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDSenderStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AutoReplayMsg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="tns:Company" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemUser" type="tns:SystemUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Company">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyActivty" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Person_ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDSenders" type="tns:ArrayOfIDSender" />
+          <s:element minOccurs="0" maxOccurs="1" name="Person" type="tns:Person" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIDSender">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IDSender" nillable="true" type="tns:IDSender" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Person">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonaltyType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonaltyNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Age" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HereDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contacts" type="tns:ArrayOfContact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Contact" nillable="true" type="tns:Contact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contact">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebSite" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Person_ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Person" type="tns:Person" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IDSenderSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IDSenderSaveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IDSenderGetAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="IDSenderGetAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IDSenderGetAllResult" type="tns:ArrayOfIDSender" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServiceStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetServiceStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServiceStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:StartService" />
+  </wsdl:message>
+  <wsdl:message name="StartServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:StartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:StopService" />
+  </wsdl:message>
+  <wsdl:message name="StopServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:StopServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPermessionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserPermession" />
+  </wsdl:message>
+  <wsdl:message name="GetUserPermessionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserPermessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDSenderSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:IDSenderSave" />
+  </wsdl:message>
+  <wsdl:message name="IDSenderSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:IDSenderSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDSenderGetAllSoapIn">
+    <wsdl:part name="parameters" element="tns:IDSenderGetAll" />
+  </wsdl:message>
+  <wsdl:message name="IDSenderGetAllSoapOut">
+    <wsdl:part name="parameters" element="tns:IDSenderGetAllResponse" />
+  </wsdl:message>
+  <wsdl:portType name="XamaWhatsAppServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceStatus">
+      <wsdl:input message="tns:GetServiceStatusSoapIn" />
+      <wsdl:output message="tns:GetServiceStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <wsdl:input message="tns:StartServiceSoapIn" />
+      <wsdl:output message="tns:StartServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <wsdl:input message="tns:StopServiceSoapIn" />
+      <wsdl:output message="tns:StopServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermession">
+      <wsdl:input message="tns:GetUserPermessionSoapIn" />
+      <wsdl:output message="tns:GetUserPermessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IDSenderSave">
+      <wsdl:input message="tns:IDSenderSaveSoapIn" />
+      <wsdl:output message="tns:IDSenderSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IDSenderGetAll">
+      <wsdl:input message="tns:IDSenderGetAllSoapIn" />
+      <wsdl:output message="tns:IDSenderGetAllSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="XamaWhatsAppServiceSoap" type="tns:XamaWhatsAppServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://xprema.net/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceStatus">
+      <soap:operation soapAction="http://xprema.net/GetServiceStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <soap:operation soapAction="http://xprema.net/StartService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <soap:operation soapAction="http://xprema.net/StopService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://xprema.net/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermession">
+      <soap:operation soapAction="http://xprema.net/GetUserPermession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IDSenderSave">
+      <soap:operation soapAction="http://xprema.net/IDSenderSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IDSenderGetAll">
+      <soap:operation soapAction="http://xprema.net/IDSenderGetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="XamaWhatsAppServiceSoap12" type="tns:XamaWhatsAppServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://xprema.net/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceStatus">
+      <soap12:operation soapAction="http://xprema.net/GetServiceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <soap12:operation soapAction="http://xprema.net/StartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopService">
+      <soap12:operation soapAction="http://xprema.net/StopService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://xprema.net/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermession">
+      <soap12:operation soapAction="http://xprema.net/GetUserPermession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IDSenderSave">
+      <soap12:operation soapAction="http://xprema.net/IDSenderSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IDSenderGetAll">
+      <soap12:operation soapAction="http://xprema.net/IDSenderGetAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="XamaWhatsAppService">
+    <wsdl:port name="XamaWhatsAppServiceSoap" binding="tns:XamaWhatsAppServiceSoap">
+      <soap:address location="http://wp.xprema.net/XamaWhatsAppService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="XamaWhatsAppServiceSoap12" binding="tns:XamaWhatsAppServiceSoap12">
+      <soap12:address location="http://wp.xprema.net/XamaWhatsAppService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
