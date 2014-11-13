@@ -33,7 +33,7 @@ namespace Beams.SysUsers
                     radProgressBar1.Text = "Connecting..";
                 });
 
-                var proxy = new XamaService.XamaWhatsAppServiceSoapClient();
+                var proxy = new xamaX.XamaWhatsAppServiceSoapClient();
 
                 Invoke((MethodInvoker)delegate
                 {
@@ -41,10 +41,10 @@ namespace Beams.SysUsers
 
                     radProgressBar1.Value1 = 30;
                     radProgressBar1.Value2 = 60;
-                    radProgressBar1.Text = "Loging Npw ..";
+                    radProgressBar1.Text = "Loging Now ..";
 
                 });
-                var q = proxy.Login(txtUserName, txtPassword);
+                var q = proxy.UserLogin(txtUserName, txtPassword);
 
                 Invoke((MethodInvoker)delegate
                 {
@@ -80,18 +80,33 @@ namespace Beams.SysUsers
 
                     });
                     LoginInfo.permession = proxy.GetUserPermession(q.UserToken);
-                    LoginInfo.IdSenderCounter = proxy.IDSenderGetAll().Count.ToString();
-                    var frm = new MainForm();
+                    LoginInfo.IdSenderCounter = proxy.IDSenderGetIDSenderCount().ToString();
 
-                    frm.Show();
-                    Hide();
+                    Invoke((MethodInvoker)delegate
+                    {
+
+
+                        var frm = new MainForm();
+
+                        frm.Show();
+                        Hide();
+
+                    });
+                    
                 }
             }
             catch (Exception ex)
             {
-                DevComponents.DotNetBar.ToastNotification.DefaultToastGlowColor = DevComponents.DotNetBar.eToastGlowColor.Red;
-                DevComponents.DotNetBar.ToastNotification.Show(this, ex.Message, DevComponents.DotNetBar.eToastPosition.MiddleCenter);
-            }
+                Invoke((MethodInvoker)delegate
+                {
+
+
+                    DevComponents.DotNetBar.ToastNotification.DefaultToastGlowColor = DevComponents.DotNetBar.eToastGlowColor.Red;
+                    DevComponents.DotNetBar.ToastNotification.Show(this, ex.Message, DevComponents.DotNetBar.eToastPosition.MiddleCenter);
+
+
+                });
+                           }
             finally
             {
                 Cursor = Cursors.Default;

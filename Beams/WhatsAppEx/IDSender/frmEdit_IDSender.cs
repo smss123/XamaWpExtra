@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Telerik.WinControls;
-using Beams.XamaService;
+using Beams.xamaX;
 
 namespace Beams.WhatsAppEx.IDSender
 {
@@ -18,6 +18,8 @@ namespace Beams.WhatsAppEx.IDSender
         {
             foreach (var item in Beams.SysUsers.LoginInfo.permession)
             {
+               
+               
                 if (item.SystemPermession.PermessionName == "ShowEditIDSender")
                 {
                     if (item.PermessionValue == "False")
@@ -45,7 +47,7 @@ namespace Beams.WhatsAppEx.IDSender
         {
             if (e.ColumnIndex == 6)
             {
-                var idx = (Beams.XamaService.IDSender)radGridView1.Rows[e.RowIndex].DataBoundItem;
+                var idx = (Beams.xamaX.IDSender)radGridView1.Rows[e.RowIndex].DataBoundItem;
                 var frm = new frmEdit_IDSender_Details();
                 frm.whatsAppIDSenderRadTextBox.Text = idx.WhatsAppIDSender;
                 frm.paskeyRadTextBox.Text = idx.Paskey;

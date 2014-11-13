@@ -45,9 +45,10 @@
             this.btnPhoneNumberGroup = new Telerik.WinControls.UI.RadMenuItem();
             this.btnManageGroup = new Telerik.WinControls.UI.RadMenuItem();
             this.radMenu1 = new Telerik.WinControls.UI.RadMenu();
+            this.BtnSendPanal = new Telerik.WinControls.UI.RadMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radStatusStrip1
@@ -203,23 +204,33 @@
             this.btnManageGroup.Text = "Manage Group";
             this.btnManageGroup.Visibility = Telerik.WinControls.ElementVisibility.Visible;
             // 
-            // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 363);
-            // 
             // radMenu1
             // 
             this.radMenu1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radMenuItem1,
-            this.radMenuItem2});
+            this.radMenuItem2,
+            this.BtnSendPanal});
             this.radMenu1.Location = new System.Drawing.Point(0, 0);
             this.radMenu1.Name = "radMenu1";
             this.radMenu1.Size = new System.Drawing.Size(516, 21);
             this.radMenu1.TabIndex = 1;
             this.radMenu1.Text = "radMenu1";
             this.radMenu1.ThemeName = "Office2010Blue";
+            // 
+            // BtnSendPanal
+            // 
+            this.BtnSendPanal.AccessibleDescription = "Send Panal";
+            this.BtnSendPanal.AccessibleName = "Send Panal";
+            this.BtnSendPanal.Name = "BtnSendPanal";
+            this.BtnSendPanal.Text = "Send Panal";
+            this.BtnSendPanal.Visibility = Telerik.WinControls.ElementVisibility.Visible;
+            this.BtnSendPanal.Click += new System.EventHandler(this.BtnSendPanal_Click);
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(516, 363);
             this.Controls.Add(this.radMenu1);
             this.Controls.Add(this.radStatusStrip1);
             this.Name = "MainForm";
@@ -261,6 +272,7 @@
         private Telerik.WinControls.UI.RadMenuItem btnPhoneNumberGroup;
         private Telerik.WinControls.UI.RadMenuItem btnManageGroup;
         private Telerik.WinControls.UI.RadMenu radMenu1;
+        private Telerik.WinControls.UI.RadMenuItem BtnSendPanal;
 
     }
 }

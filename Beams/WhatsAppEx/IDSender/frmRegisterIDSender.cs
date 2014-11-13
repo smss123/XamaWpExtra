@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Telerik.WinControls;
-using Beams.XamaService;
+using Beams.xamaX;
 using System.IO;
 using System.Drawing.Imaging;
 
@@ -40,23 +40,29 @@ namespace Beams.WhatsAppEx.IDSender
                 identity = WhatsAppApi.Register.WhatsRegisterV2.GenerateIdentity(phonenumber);
                 var method = "sms";
                 var response = string.Empty;
+                var requerst = string.Empty;
+               // WhatsAppApi.Register.WhatsRegisterV2.RequestCode(phonenumber, out password,out requerst, out response, method,identity);
+
+
                 if (WhatsAppApi.Register.WhatsRegisterV2.RequestCode(phonenumber, out password, out response, method, identity))
                 {
-                    DialogResult = System.Windows.Forms.DialogResult.OK;
+                   
                     paskeyRadTextBox.Text = password;
                     if (paskeyRadTextBox.Text == string.Empty)
                     {
                         var reg2 = new frmVeryfy();
                         reg2.identity = identity;
                         reg2.phonenumber = whatsAppIDSenderRadTextBox.Text;
-
-                        if (reg2.ShowDialog() == System.Windows.Forms.DialogResult.OK && !string.IsNullOrEmpty(reg2.password))
-                        {
+                        reg2.ShowDialog();
+                       
                             paskeyRadTextBox.Text = reg2.password;
-
-                            Application.DoEvents();
-                            SaveIDSender();
-                        }
+                            if (reg2.password!= null)
+                            {
+                                Application.DoEvents();
+                                SaveIDSender();
+                            }
+                           
+                       
                     }
                     else
                     {
@@ -117,13 +123,13 @@ namespace Beams.WhatsAppEx.IDSender
             var whatsStatus = whatsAppStatusRadTextBox.Text;
             var passkey = paskeyRadTextBox.Text;
 
-            var id = new XamaService.IDSender()
+            var id = new xamaX.IDSender()
             { AutoReplayMsg = AutoReply,
                 IDSenderStatus = "Active",
                 WhatsAppStatus = whatsStatus,
                 WhatsAppIDSender = whatsAppIDSenderRadTextBox.Text,
                 whatsAppImg = img,
-                Company = null,
+                
                 Paskey = passkey,
                 User_ID = Beams.SysUsers.LoginInfo.UserID
 
@@ -145,7 +151,7 @@ namespace Beams.WhatsAppEx.IDSender
 
         private void frmRegisterIDSender_Load(object sender, EventArgs e)
         {
-            PermessionManager.ApplyPermession(this);
+        
             RadCounter.Text = string.Format("Register To Now {0}", Beams.SysUsers.LoginInfo.IdSenderCounter);
 
             foreach (var item in Beams.SysUsers.LoginInfo.permession)

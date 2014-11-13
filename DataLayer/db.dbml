@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="XWhatsAppExtra" Class="dbDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=SAMER\SQL2008;Initial Catalog=XWhatsAppExtra;Integrated Security=True" SettingsObjectName="DataLayer.Properties.Settings" SettingsPropertyName="XWhatsAppExtraConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=SEZEROFFICE-PC\SQL2008;Initial Catalog=XWhatsAppExtra;Integrated Security=True" SettingsObjectName="DataLayer.Properties.Settings" SettingsPropertyName="XWhatsAppExtraConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="PersonX.Companies" Member="Companies">
     <Type Name="Company">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Never" />

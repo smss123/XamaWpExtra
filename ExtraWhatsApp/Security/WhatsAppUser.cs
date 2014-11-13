@@ -25,6 +25,7 @@ namespace ExtraWhatsApp.Security
                     u.UserToken = q.UserToken;
                     u.ID = q.ID;
                     u.Person = null;
+
                     return q;
                 }
                 else

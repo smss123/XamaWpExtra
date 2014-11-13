@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Beams.XamaService;
+using Beams.xamaX;
 using System.Threading;
+using Beams.WhatsAppEx.SendPanal;
 
 namespace Beams
 {
@@ -54,6 +55,13 @@ namespace Beams
         {
             var frm = new WhatsAppEx.IDSender.frmEdit_IDSender();
             frm.ShowDialog();
+        }
+
+        private void BtnSendPanal_Click(object sender, EventArgs e)
+        {
+            frmSendPanal frm = new frmSendPanal();
+            frm.ShowDialog();
+ 
         }
     }
 }

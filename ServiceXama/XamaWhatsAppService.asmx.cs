@@ -16,11 +16,9 @@ namespace ServiceXama
     [System.ComponentModel.ToolboxItem(false)]
     public class XamaWhatsAppService : System.Web.Services.WebService
     {
-        [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
+
+        #region "Service"
+
 
         [WebMethod]
         public string GetServiceStatus()
@@ -42,9 +40,17 @@ namespace ServiceXama
             var ser = new ServiceController();
             ser.StopService();
         }
+        #endregion
+        [WebMethod]
+        public string HelloWorld()
+        {
+            return "Hello World";
+        }
+
+        #region"Users"
 
         [WebMethod]
-        public SystemUser Login(string user, string pwd)
+        public SystemUser UserLogin(string user, string pwd)
         {
             var wp = new WhatsAppUser();
             return wp.Login(user: user, pwd: pwd);
@@ -56,6 +62,12 @@ namespace ServiceXama
             var cmd = new WhatsAppUser();
             return cmd.GetUserPermession(UserToken: userToken);
         }
+        
+        
+        #endregion
+
+
+        #region "ID SENDER"
 
         [WebMethod]
         public bool IDSenderSave(IDSender snd)
@@ -72,10 +84,22 @@ namespace ServiceXama
         }
 
         [WebMethod]
-        public int IDSender()
+        public int IDSenderGetIDSenderCount()
         {
             var cmd = new ExtraWhatsApp.WhatsApp._Command_IDSender();
             return cmd.GetAll().Count;
         }
+
+         [WebMethod]
+        public List<IDSender> LoadIDSenderToSend(string userToken)
+        {
+             var cmd = new ExtraWhatsApp.WhatsApp._Command_IDSender();
+            return cmd.LoadIDSenderToSend(userToken);
+           
+        }
+
+        #endregion
+
+       
     }
 }

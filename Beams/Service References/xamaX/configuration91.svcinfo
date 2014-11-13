@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="+dVxooXDS1hXS6sNFOgZDbcodMc=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ND2Ew2xT3Jk1zu6Shcdf6iHJm0g=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="XamaWhatsAppServiceSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="XamaWhatsAppServiceSoap" contract="XamaService.XamaWhatsAppServiceSoap" bindingType="basicHttpBinding" address="http://wp.xprema.net/XamaWhatsAppService.asmx" bindingConfiguration="XamaWhatsAppServiceSoap">
+    <endpoint name="XamaWhatsAppServiceSoap" contract="xamaX.XamaWhatsAppServiceSoap" bindingType="basicHttpBinding" address="http://localhost:1327/XamaWhatsAppService.asmx" bindingConfiguration="XamaWhatsAppServiceSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://wp.xprema.net/XamaWhatsAppService.asmx</serializedValue>
+          <serializedValue>http://localhost:1327/XamaWhatsAppService.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -127,7 +127,7 @@
           <serializedValue>XamaWhatsAppServiceSoap</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>XamaService.XamaWhatsAppServiceSoap</serializedValue>
+          <serializedValue>xamaX.XamaWhatsAppServiceSoap</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

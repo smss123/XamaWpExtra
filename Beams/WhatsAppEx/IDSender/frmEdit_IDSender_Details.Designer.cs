@@ -191,9 +191,9 @@
             // 
             this.radStatusStrip1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.txtMsg});
-            this.radStatusStrip1.Location = new System.Drawing.Point(0, 395);
+            this.radStatusStrip1.Location = new System.Drawing.Point(0, 392);
             this.radStatusStrip1.Name = "radStatusStrip1";
-            this.radStatusStrip1.Size = new System.Drawing.Size(576, 21);
+            this.radStatusStrip1.Size = new System.Drawing.Size(576, 24);
             this.radStatusStrip1.TabIndex = 24;
             this.radStatusStrip1.Text = "radStatusStrip1";
             this.radStatusStrip1.ThemeName = "Office2010Blue";

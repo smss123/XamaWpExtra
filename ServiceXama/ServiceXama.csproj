@@ -66,8 +66,10 @@
       <DependentUpon>XamaWhatsAppService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="_IDSenderObj.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\Xama.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

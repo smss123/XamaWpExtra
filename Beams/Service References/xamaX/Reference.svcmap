@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c86e092c-179e-43a5-83d0-d2028ffdd257" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4277d731-2edb-40a1-972c-513c2ad08ebf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
-    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -20,11 +20,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://wp.xprema.net/XamaWhatsAppService.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:1327/XamaWhatsAppService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="XamaWhatsAppService1.wsdl" MetadataType="Wsdl" ID="e1286bab-c4dd-4b3f-ab63-d27f9687e6e3" SourceId="1" SourceUrl="http://wp.xprema.net/XamaWhatsAppService.asmx?wsdl" />
-    <MetadataFile FileName="XamaWhatsAppService1.disco" MetadataType="Disco" ID="bd50b917-a6e3-485c-9bcb-73d23f1fc2e6" SourceId="1" SourceUrl="http://wp.xprema.net/XamaWhatsAppService.asmx?disco" />
+    <MetadataFile FileName="XamaWhatsAppService.wsdl" MetadataType="Wsdl" ID="7c9f3518-8e6e-475e-bfed-5c94d31e9fdc" SourceId="1" SourceUrl="http://localhost:1327/XamaWhatsAppService.asmx?wsdl" />
+    <MetadataFile FileName="XamaWhatsAppService.disco" MetadataType="Disco" ID="85ec7e25-bba8-461b-a3bc-d31a61acc535" SourceId="1" SourceUrl="http://localhost:1327/XamaWhatsAppService.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

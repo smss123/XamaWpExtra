@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-
+using Beams.WhatsAppEx.IDSender;
 namespace Beams
 {
     internal static class Program
@@ -16,6 +16,8 @@ namespace Beams
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SysUsers.frmUserLogin());
+            //Application.Run(new Form1());
+         
         }
     }
 }

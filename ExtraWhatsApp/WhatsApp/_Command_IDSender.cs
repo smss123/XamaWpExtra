@@ -39,5 +39,27 @@ namespace ExtraWhatsApp.WhatsApp
             db.DeferredLoadingEnabled = false;
             return db.IDSenders.ToList();
         }
+
+
+        public List<IDSender> LoadIDSenderToSend(string UserToken )
+        {
+            try
+            {
+                var db = new dbDataContext();
+                var q = db.IDSenders.Where(p => p.SystemUser.UserToken == UserToken && p.IDSenderStatus=="Active").ToList();
+                List<IDSender> ls = new List<IDSender>();
+                foreach (var item in q)
+                {
+                    ls.Add(new IDSender() { ID = item.ID, WhatsAppIDSender = item.WhatsAppIDSender, Paskey = item.Paskey }); 
+                }
+                return ls;
+            }
+            catch (Exception e)
+            {
+                
+                throw e;
+            }
+
+        }
     }
 }

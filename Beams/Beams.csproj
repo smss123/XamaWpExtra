@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -81,26 +82,22 @@
     </Reference>
     <Reference Include="WhatsAppApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\SezerOffice\OneDrive\WhatsApp\WhatsAppRegister\WhatsAppSpace\XWhatsReg\bin\014\WhatsAppApi.dll</HintPath>
+      <HintPath>D:\Systems\WhatsApp\LastApi\WhatsAPINet-master (2)\WhatsAPINet-master\WhatsAppApi\bin\Debug\WhatsAppApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Xprema">
+      <HintPath>..\..\XframeworkV2\XframeWorkV2\Xprema\bin\Debug\Xprema.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PermessionManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\XamaService\Reference.cs">
+    <Compile Include="Service References\xamaX\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -148,9 +145,13 @@
     <Compile Include="WhatsAppEx\IDSender\frmVeryfy.Designer.cs">
       <DependentUpon>frmVeryfy.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="WhatsAppEx\SendPanal\frmSendPanal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WhatsAppEx\SendPanal\frmSendPanal.Designer.cs">
+      <DependentUpon>frmSendPanal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WhatsAppEx\SendPanal\SendHelper.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +186,9 @@
     <EmbeddedResource Include="WhatsAppEx\IDSender\frmVeryfy.resx">
       <DependentUpon>frmVeryfy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WhatsAppEx\SendPanal\frmSendPanal.resx">
+      <DependentUpon>frmSendPanal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\DataSources\DataLayer.IDSender.datasource" />
     <None Include="Properties\Settings.settings">
@@ -196,34 +200,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\XamaService\Beams.XamaService.IDSender.datasource">
+    <None Include="Service References\xamaX\Beams.xamaX.IDSender.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\XamaService\Beams.XamaService.SystemUser.datasource">
+    <None Include="Service References\xamaX\Beams.xamaX.SystemUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\XamaService\Beams.XamaService.UserPermession.datasource">
+    <None Include="Service References\xamaX\Beams.xamaX.UserPermession.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\XamaService\XamaWhatsAppService1.wsdl" />
+    <None Include="Service References\xamaX\XamaWhatsAppService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\XamaService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\XamaService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\XamaService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\XamaService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
@@ -244,7 +233,22 @@
     <None Include="Resources\ic_lock_idle_low_battery.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\XamaService\XamaWhatsAppService1.disco" />
+    <WCFMetadataStorage Include="Service References\xamaX\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\xamaX\XamaWhatsAppService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\xamaX\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\xamaX\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\xamaX\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
